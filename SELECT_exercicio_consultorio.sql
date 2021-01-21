@@ -1,5 +1,5 @@
 
-SELECT COM INNER JOIN E SUB CONSULTAS
+--SELECT COM INNER JOIN E SUB CONSULTAS
 
 ----------------------------------------------------------------------------------------------------------
 SELECT  cidade.nome, COUNT(veiculosbaixados.codigo) AS Soma_dos_baixados, veiculosbaixados.observacao
@@ -20,7 +20,7 @@ GROUP BY p.nome, p.endereco
 HAVING COUNT(v.placa)>=2
 
 
--- Retorne a média de idade dos pacientes atendidos pelo médico JOSE
+--Retorne a média de idade dos pacientes atendidos pelo médico JOSE
 SELECT medico.nome, ROUND(AVG(paciente.idade),2) AS media_idade
 FROM medico
 INNER JOIN consulta
@@ -30,7 +30,7 @@ ON paciente.cod_pac=consulta.cod_pac
 GROUP BY medico.nome
 HAVING (medico.nome)='JOSE'
 
--- Retorno todos médico (nome) e os pacientes (nome) e os pacientes (nome) que atendidos por cada médico, por ordem alfabética
+--Retorno todos médico (nome) e os pacientes (nome) e os pacientes (nome) que atendidos por cada médico, por ordem alfabética
 SELECT medico.nome, paciente.nome
 FROM medico
 INNER JOIN consulta
@@ -46,7 +46,6 @@ INNER JOIN med_espec me
 ON m.cod_med=me.cod_med
 INNER JOIN especialidade e
 ON e.cod_espec=me.cod_espec
-
 
 --cod_med e nome somente dos médicos que tem menos de 30 anos
 SELECT medico.cod_med, medico.nome

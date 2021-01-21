@@ -36,14 +36,14 @@ CREATE TABLE Med_Espec
 );
 
 ALTER TABLE Med_espec 
-ADD CONSTRAINT fk_cod_med_cod_med FOREIGN KEY (cod_med) REFERENCES Medico(cod_med)
+ADD CONSTRAINT fk_cod_med_cod_med FOREIGN KEY (cod_med) REFERENCES Medico(cod_med);
 
 ALTER TABLE Med_espec 
-ADD CONSTRAINT fk_cod_espec_cod_espec FOREING KEY (cod_espec) REFERENCES especialidade(cod_espec)
+ADD CONSTRAINT fk_cod_espec_cod_espec FOREIGN KEY (cod_espec) REFERENCES especialidade(cod_espec);
 
 
 alter table "MED_ESPEC" 
-add constraint "MED_ESPEC_CON" foreign key ("COD_ESPEC") references "ESPECIALIDADE" ("COD_ESPEC")
+add constraint "MED_ESPEC_CON" foreign key ("COD_ESPEC") references "ESPECIALIDADE" ("COD_ESPEC");
 
 
 CREATE TABLE Consulta (
@@ -56,15 +56,17 @@ CREATE TABLE Consulta (
  CONSTRAINT fk_cod_med_cod_med2 FOREIGN KEY (cod_med) REFERENCES Medico (cod_med),
  CONSTRAINT fk_cod_pac_cod_pac  FOREIGN KEY (cod_pac) REFERENCES Paciente (cod_pac)
 );
------------------------------------------------------------------------------------------------------
+
+--ALTER TABLE
+
 ALTER TABLE Paciente
-ADD cep NUMBER(8)
+ADD cep NUMBER(8);
 
-ALTER TABLE Paciente   -> renomendo a tabela
-RENAME TO Cliente
+ALTER TABLE Paciente   --renomendo a tabela
+RENAME TO Cliente;
 
-ALTER TABLE paciente RENAME COLUMN        -> renomenado a coluna
-prontuario TO historico_do_paciente
+ALTER TABLE paciente RENAME COLUMN        -- renomenado a coluna
+prontuario TO historico_do_paciente;
 
 
 ALTER TABLE cliente
@@ -74,12 +76,12 @@ MODIFY nome NOT NULL;
 ALTER TABLE cliente
 MODIFY nome NULL;
 
-ALTER TABLE cliente;
-MODIFY nome VARCHAR2(80)
+ALTER TABLE cliente
+MODIFY nome VARCHAR2(80);
 
-ALTER TABLE medico DROP nome;   -> remove apenas o capmpo da tabela
+ALTER TABLE medico DROP nome; -- remove apenas o capmpo da tabela
 
-ALTER TABLE medico;		-> remove a tabela inteira e seus dados
+ALTER TABLE medico;		-- remove a tabela inteira e seus dados
 
 
 ALTER TABLE Med_espec 
@@ -91,7 +93,8 @@ ADD CONSTRAINT fk_cod_espec_cod_espec FOREING KEY (cod_espec) REFERENCES especia
 alter table "MED_ESPEC" 
 add constraint "MED_ESPEC_CON" foreign key ("COD_ESPEC") references "ESPECIALIDADE" ("COD_ESPEC")
 
-------------------------------------------------------------------------------------------------------
+# INSERT INTO, UPDATE, DELETE
+
 INSERT INTO Paciente
 (cod_pac, nome, idade, endereco, prontuario, cidade)
 VALUES
@@ -127,52 +130,12 @@ INSERT INTO consulta
 VALUES
 (1,4, to_date('14/08/2020','DD/MM/YYYY'),'consultorios',403)
 
-------------------------------------------------------------------------------------------------------
-**ATENÇÃO SE USAR OS COMANDOS UPDATE E DELETE SEM O WHERE VAI SOBRESCREVER TODOS OS REGISTROS DA TABELA
+--ATENÇÃO SE USAR OS COMANDOS UPDATE E DELETE SEM O WHERE VAI SOBRESCREVER TODOS OS REGISTROS DA TABELA
 
 UPDATE funcionario
 SET nome = 'João da Silva Souza'
 WHERE codfunc = 1;
 
-------------------------------------------------------------------------------------------------------
+
 DELETE FROM funcionario
 WHERE codfunc = 1;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
