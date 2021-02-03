@@ -117,7 +117,7 @@ VALUES
 INSERT INTO Medico
 (cod_med, cremers, nome, idade)
 VALUES
-(5, 40466, 'Itálo', 45)
+(5, 40466, 'Itálo', 45);
 
 INSERT INTO especialidade
 (cod_espec, espec)
