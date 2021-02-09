@@ -1,0 +1,15 @@
+CREATE TABLE Funcionario 
+( cod_func NUMBER(10) CONSTRAINT pk_cod_func PRIMARY KEY,
+  nome VARCHAR2(50),
+  idade NUMBER(4),
+  salario NUMBER(10,2),
+  setor VARCHAR2(30)
+);
+
+CREATE TABLE MINHA_LOG
+(DT_LOG DATE,
+DS_LOG VARCHAR2(4000)
+);
+
+
+
